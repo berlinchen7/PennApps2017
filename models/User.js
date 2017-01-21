@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
   profile: {
     name: String,
     gender: String,
+    age: String,
     location: String,
     website: String,
     picture: String

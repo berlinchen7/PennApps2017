@@ -26,10 +26,63 @@ block content
         label.radio.col-sm-3
           input(type='radio', checked=user.profile.gender=='other', name='gender', value='other', data-toggle='radio')
           span Other
+
     .form-group
-      label.col-sm-3.control-label(for='location') Location
+      label.col-sm-3.control-label(for='age') Age
       .col-sm-7
-        input.form-control(type='text', name='location', id='location', value=user.profile.location)
+        input.form-control(type='text', name='age', id='age', value=user.profile.age)
+
+    .form-group
+      label.col-sm-3.control-label Topics of Interest
+      .col-sm-6
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='art', name='interest', value='art', data-toggle='checkbox')
+          span Art
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='civilHacking', name='interest', value='civilHacking', data-toggle='checkbox')
+          span Civil Hacking
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='education', name='interest', value='education', data-toggle='checkbox')
+          span Education
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='environment', name='interest', value='environment', data-toggle='checkbox')
+          span Environment
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='food', name='interest', value='food', data-toggle='checkbox')
+          span Food
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='genSex', name='interest', value='genSex', data-toggle='checkbox')
+          span Gender and Sexuality
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='globalAffairs', name='interest', value='globalAffairs', data-toggle='checkbox')
+          span Global Affairs
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='health', name='interest', value='health', data-toggle='checkbox')
+          span Health
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='inequalityJustice', name='interest', value='inequalityJustice', data-toggle='checkbox')
+          span Inequality and Justice
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='peaceConflict', name='interest', value='peaceConflict', data-toggle='checkbox')
+          span Peace and Conflict
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='publicPolicy', name='interest', value='publicPolicy', data-toggle='checkbox')
+          span Public Policy
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='raceClass', name='interest', value='raceClass', data-toggle='checkbox')
+          span Race and Class
+        label.checkbox.col-sm-5
+          input(type='checkbox', checked=user.profile.interest=='socialEntre', name='interest', value='socialEntre', data-toggle='checkbox')
+          span Social Entrepreneurship
+        
+        
+    .form-group
+      label.col-sm-3.control-label(for='bio') Bio
+      .col-sm-7
+        input.form-control(type='textarea', rows='4', cols='50', name='bio', id='bio', value=user.profile.bio)
+
+
+
     .form-group
       label.col-sm-3.control-label(for='website') Website
       .col-sm-7
