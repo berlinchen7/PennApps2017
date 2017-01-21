@@ -119,6 +119,13 @@ exports.getAccount = (req, res) => {
   });
 };
 
+// exports.filterProfile = (req, res, next) => {
+//   User.filterProfile(req.user.id, (user) => {
+//
+//
+// }
+// //
+
 /**
  * POST /account/profile
  * Update profile information.
@@ -140,22 +147,17 @@ exports.postUpdateProfile = (req, res, next) => {
     user.profile.name = req.body.name || '';
     user.profile.gender = req.body.gender || '';
     user.profile.age = req.body.age || '';
-    user.profile.art = req.body.art || '';
-    user.profile.civilHacking = req.body.civilHacking || '';
-    user.profile.eduation = req.body.eduation || '';
-    user.profile.environment = req.body.environment || '';
-    user.profile.food = req.body.food || '';
-    user.profile.genSex = req.body.genSex || '';
-    user.profile.globalAffairs = req.body.globalAffairs || '';
-    user.profile.health = req.body.health || '';
-    user.profile.inequalityJustice = req.body.inequalityJustice || '';
-    user.profile.peaceConflict = req.body.peaceConflict || '';
-    user.profile.publicPolicy = req.body.publicPolicy || '';
-    user.profile.raceClass = req.body.raceClass || '';
-    user.profile.socialEntre = req.body.socialEntre || '';
-    user.profile.bio = req.body.bio || '';
     user.profile.location = req.body.location || '';
     user.profile.website = req.body.website || '';
+
+
+    req.body.value.forEach(function (item, index){
+      console.log(item)
+      user.profile[item] = item;
+    });
+
+
+    console.log(req.body.value);
     user.save((err) => {
       if (err) {
         if (err.code === 11000) {
@@ -165,7 +167,7 @@ exports.postUpdateProfile = (req, res, next) => {
         return next(err);
       }
       req.flash('success', { msg: 'Profile information has been updated.' });
-      res.redirect('/account');
+      res.redirect('/dash');
     });
   });
 };

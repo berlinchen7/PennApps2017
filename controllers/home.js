@@ -7,3 +7,9 @@ exports.index = (req, res) => {
     title: 'Home'
   });
 };
+
+exports.dash = (req, res) => {
+  res.render('home', {
+    title: 'Reload'
+  });
+};
