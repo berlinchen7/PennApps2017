@@ -1,5 +1,6 @@
 Activate!
 =======================
+![alt tag](https://raw.githubusercontent.com/berlinchen7/PennApps2017/master/Activate!.png)
 Welcome to Activate! This web app is designed to connect fellow activists to
 promote intellectual discourse and a greater variety of understanding.
 
