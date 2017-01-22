@@ -14,4 +14,10 @@ exports.dash = (req, res) => {
   });
 };
 
+exports.about = (req, res) => {
+  res.render('about', {
+    title: 'About'
+  });
+};
+
 

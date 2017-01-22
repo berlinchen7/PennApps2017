@@ -1,10 +1,17 @@
 extends layout
 
 block content
-  h1 Activate Activist 
-  p.lead Connecting potential partners in activism and creating more civically engaged communities.
+  h1 
+  h6 Connecting potential partners in activism and creating more civically engaged communities.
   hr
   .row.text-center
+      h1 ---
       h2 We bring together people passionate about social change.  
-      a.btn.btn-default(href='/friends', role='button') Connect now »
+      h1 ---
+      if !user
+        a.btn.btn-default(href='/signup', role='button') Get started »
+        h1
+        a.btn.btn-default(href='/login', role='button') Log in »
+      else
+        a.btn.btn-default(href='/friends', role='button') Connect now »
       

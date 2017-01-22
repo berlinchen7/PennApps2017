@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
 
   profile: {
     name: String,
+    location: String,
     gender: String,
     age: String,
     art: String,
@@ -34,10 +35,9 @@ const userSchema = new mongoose.Schema({
     publicPolicy: String,
     raceClass: String,
     socialEntre: String,
-    bio: String,
-    location: String,
+    q: String,
     website: String,
-    picture: String
+    
   }
 }, { timestamps: true });
 

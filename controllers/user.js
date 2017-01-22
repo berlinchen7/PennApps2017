@@ -149,19 +149,19 @@ exports.postUpdateProfile = (req, res, next) => {
     if (err) { return next(err); }
     user.email = req.body.email || '';
     user.profile.name = req.body.name || '';
+    user.profile.location = req.body.location || '';
     user.profile.gender = req.body.gender || '';
     user.profile.age = req.body.age || '';
-    user.profile.location = req.body.location || '';
+    user.profile.q = req.body.q || '';
     user.profile.website = req.body.website || '';
-
-
+    
     req.body.value.forEach(function (item, index){
       user.profile[item] = item;
 
     });
 
 
-    console.log(req.body.value);
+    //console.log(req.body.value);
     user.save((err) => {
       if (err) {
         if (err.code === 11000) {
@@ -185,7 +185,6 @@ exports.postUpdateProfile = (req, res, next) => {
 
 exports.friends = (req, res) => {
   var allInterests = ['art', 'civilHacking', 'education', 'environment', 'food', 'genSex', 'globalAffairs', 'health', 'inequalityJustice', 'peaceConflict', 'publicPolicy', 'raceClass', 'socialEntre']
-
 
   var getUserInterestArray = function(user){
     var interestArray = []
