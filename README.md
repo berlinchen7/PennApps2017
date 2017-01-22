@@ -1,6 +1,6 @@
 Activate!
 =======================
-![alt tag](https://raw.githubusercontent.com/berlinchen7/PennApps2017/master/Activate!.png)
+![alt tag](https://raw.githubusercontent.com/berlinchen7/PennApps2017/master/Activate!-2.png)
 
 
 Welcome to Activate! This web app is designed to connect fellow activists to
