@@ -3,6 +3,8 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const User = require('../models/User');
+const jaccard = require('jaccard');
+const _ = require('lodash');
 
 /**
  * GET /login
@@ -126,6 +128,8 @@ exports.getAccount = (req, res) => {
 // }
 // //
 
+
+
 /**
  * POST /account/profile
  * Update profile information.
@@ -152,8 +156,8 @@ exports.postUpdateProfile = (req, res, next) => {
 
 
     req.body.value.forEach(function (item, index){
-      console.log(item)
       user.profile[item] = item;
+
     });
 
 
@@ -171,6 +175,62 @@ exports.postUpdateProfile = (req, res, next) => {
     });
   });
 };
+
+
+
+
+
+
+
+
+exports.friends = (req, res) => {
+  var allInterests = ['art', 'civilHacking', 'education', 'environment', 'food', 'genSex', 'globalAffairs', 'health', 'inequalityJustice', 'peaceConflict', 'publicPolicy', 'raceClass', 'socialEntre']
+
+
+  var getUserInterestArray = function(user){
+    var interestArray = []
+    for (var i = 0; i < allInterests.length; i++) {
+      if (typeof user.profile[allInterests[i]] !== 'undefined') {
+        interestArray.push(allInterests[i])
+      }  
+    }
+    return interestArray
+  }
+
+  var currInterests = getUserInterestArray(req.user)
+  var bestFriends = []
+  var stream = User.find().stream()
+  
+  stream.on('data', function(user){
+    var potentialFriendInterestArray = getUserInterestArray(user)
+    var score = jaccard.index(currInterests, potentialFriendInterestArray)
+    bestFriends.push({'score': score, 'user': user})
+  })
+  stream.on('close', function(){
+    var sortedBFF = _.sortBy(bestFriends, ['score'])
+    console.log(sortedBFF)
+    res.render('account/partners', {
+        title: 'Partners',
+        sortedBFF: sortedBFF
+    });
+  })
+
+  
+
+  // console.log(allUsers.length)
+  // for (var i = 0; i < allUsers.length; i++) {
+  //   var potentialFriendInterestArray = getUserInterestArray(allUsers[i])
+  //   console.log(potentialFriendInterestArray)
+  // }
+  
+};
+
+
+
+
+
+
+
 
 /**
  * POST /account/password
