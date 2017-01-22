@@ -2,24 +2,33 @@ extends ../layout
 
 block content
   h1 Activate Activist 
-  p.lead Connecting potential partners in activism and creating more civically engaged communities.
+  p.lead Connecting partners in activism. Creating civically engaged communities.
   hr
   .row
     .col-sm-6
-      h2 #{sortedBFF[0].user.email}
+      h2 #{sortedBFF[0].user.profile.name}
+      h4 Email: #{sortedBFF[0].user.email}
       h4 #{sortedBFF[0].user.profile.location}
-      h4 #{sortedBFF[0].user.profile.age}   
+      h5 #{sortedBFF[0].user.profile.bio}
+      h4 Age: #{sortedBFF[0].user.profile.age}
+
     .col-sm-6
-      h2 #{sortedBFF[1].user.email}
+      h2 #{sortedBFF[1].user.profile.name}
+      h4 Email: #{sortedBFF[1].user.email}
       h4 #{sortedBFF[1].user.profile.location}
-      h4 #{sortedBFF[1].user.profile.age}
+      h5 #{sortedBFF[1].user.profile.bio}
+      h4 Age: #{sortedBFF[1].user.profile.age}
     .col-sm-6
-      h2 #{sortedBFF[2].user.email}
+      h2 #{sortedBFF[2].user.profile.name}
+      h4 Email: #{sortedBFF[2].user.email}
       h4 #{sortedBFF[2].user.profile.location}
-      h4 #{sortedBFF[2].user.profile.age}   
+      h5 #{sortedBFF[2].user.profile.bio}
+      h4 Age: #{sortedBFF[2].user.profile.age}   
     .col-sm-6
-      h2 #{sortedBFF[3].user.email}
+      h2 #{sortedBFF[3].user.profile.name}
+      h4 Email #{sortedBFF[3].user.email}
       h4 #{sortedBFF[3].user.profile.location}
-      h4 #{sortedBFF[3].user.profile.age}
+      h5 #{sortedBFF[3].user.profile.bio}
+      h4 Age: #{sortedBFF[3].user.profile.age}
     .col-sm-6
       

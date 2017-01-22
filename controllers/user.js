@@ -155,13 +155,18 @@ exports.postUpdateProfile = (req, res, next) => {
     user.profile.website = req.body.website || '';
 
 
-    req.body.value.forEach(function (item, index){
-      user.profile[item] = item;
+    console.log(req.body.value);
 
+    //for(var key in req.body) {
+     // if(req.body.hasOwnProperty(key))
+       // user.profile[item] = item;
+   // }
+    req.body.value.forEach(function (item, index){
+     user.profile[item] = item;
     });
 
 
-    console.log(req.body.value);
+    
     user.save((err) => {
       if (err) {
         if (err.code === 11000) {
@@ -208,6 +213,7 @@ exports.friends = (req, res) => {
   })
   stream.on('close', function(){
     var sortedBFF = _.sortBy(bestFriends, ['score'])
+
     console.log(sortedBFF)
     
     var value

@@ -11,8 +11,6 @@
         | Activate!
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        li(class=(title == 'Contact') ? 'active' : undefined)
-          a(href='/contact') Contact
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=(title == 'Login') ? 'active' : undefined)
@@ -27,7 +25,6 @@
               else
                 img(src=user.gravatar(60))
               span= user.profile.name || user.email || user.id
-              i.caret
             ul.dropdown-menu
               li
                 a(href='/account') My Account
