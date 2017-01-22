@@ -209,21 +209,23 @@ exports.friends = (req, res) => {
   stream.on('close', function(){
     var sortedBFF = _.sortBy(bestFriends, ['score'])
     console.log(sortedBFF)
+    
+    var value
+    Object.keys(sortedBFF).forEach(function(key){
+      value = sortedBFF[key].user.email
+      console.log(value)
+      
+    })
     res.render('account/partners', {
         title: 'Partners',
         sortedBFF: sortedBFF
     });
-  })
-
-  
-
-  // console.log(allUsers.length)
-  // for (var i = 0; i < allUsers.length; i++) {
-  //   var potentialFriendInterestArray = getUserInterestArray(allUsers[i])
-  //   console.log(potentialFriendInterestArray)
-  // }
-  
+  })  
 };
+
+
+
+
 
 
 
